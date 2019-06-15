@@ -70,25 +70,33 @@ class Circle implements Shape{
 
 class ShapeCollector {
 
-    ArrayList<Circle> circles = new ArrayList<>();
-    ArrayList<Triangle> triangles = new ArrayList<>();
-    ArrayList<Square> squares = new ArrayList<>();
+    ArrayList<Circle> figures = new ArrayList<>();
+
 
 
     public ShapeCollector(ArrayList<Circle> circles) {
-        this.circles = circles;
+        this.figures = circles;
     }
 
     public void addFigure(Shape shape) {
 
     }
 
-    public void removeFromList(Shape shape) {
-
+    public boolean removeFromList(Shape shape) {
+        boolean result = false;
+        if (figures.contains(shape)){
+            figures.remove(shape);
+            result = true;
+        }
+        return result;
     }
 
-    public void getFigure(int n) {
 
-    }
+    public ShapeCollector getFigure(int n) {
+        Circle shape = null;
+        if (n >= 0 && n < figures.size()) {
+            shape = figures.get(n);
+        }
+        return shape;
 }
 
