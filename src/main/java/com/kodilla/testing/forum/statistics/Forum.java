@@ -1,38 +1,55 @@
 //package com.kodilla.testing.forum.statistics;
 //
-//import java.util.ArrayList;
 //import java.util.List;
 //
 //public class Forum implements Statistics {
 //
-//    String user;
-//    int comments;
+//    int users;
 //    int posts;
-//    int result;
+//    int comments;
+//    double avPostsPerUser;
+//    double avCommentsPerUser;
+//    double avCommentsPerPost;
 //
-//    public List<String> usersNames(String user) {
-//        List<String> users = new ArrayList<String>();
-//        users.add("Tom");
+//    public void calculateAdvStatistics(Statistics statistics) {
+//        users = statistics.usersNames().size();
+//
+//        posts= statistics.postsCount();
+//
+//        comments = statistics.commentsCount();
+//
+//    if (statistics.usersNames().size() == 0) {
+//        avPostsPerUser = 0.0;
+//    } else {
+//        avPostsPerUser = (double)statistics.postsCount() / (double)statistics.usersNames().size();
 //    }
 //
+//        if (statistics.usersNames().size() == 0) {
+//        avCommentsPerUser = 0.0;
+//    } else {
+//        avCommentsPerUser = (double)statistics.commentsCount() / (double)statistics.usersNames().size();
+//    }
+//
+//        if (statistics.postsCount() == 0) {
+//        avCommentsPerPost = 0.0;
+//    } else {
+//        avCommentsPerPost = (double)statistics.commentsCount() / (double)statistics.postsCount();
+//    }
+//
+//    }
+//
+//    @Override
+//    public List<String> usersNames(int users) {
+//        return users;
+//    }
+//
+//    @Override
 //    public int postsCount(int posts) {
-//        return result += posts;
+//        return posts;
 //    }
 //
-//    public int commentsCount(int comments) {
-//        return result += comments;
+//    @Override
+//    public int commentsCount( int comments) {
+//        return comments;
 //    }
-//
-//    public double averageComments(int comments){
-//        return 0;
-//    }
-//    public double averageComOnPost(int comments,int posts){
-//        return 0;
-//    }
-//
-//    public double calculateAdvStatistics(Statistics statistics){
-//        List<String> calculatereslut = new ArrayList<>();
-//
-//    }
-//
 //}

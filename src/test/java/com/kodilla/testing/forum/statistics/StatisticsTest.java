@@ -14,20 +14,11 @@
 //    public void calculateAdvStatistics(Statistic statistic) {
 //
 //        //Given
-//        Statistics statisticsMock = mock(Statistics.class);
-//        LinkedList<Integer> commentsList = new LinkedList<>();
-//        commentsList.add(1);
-//        commentsList.add(1);
-//        commentsList.add(1);
-//        commentsList.add(1);
-//        commentsList.add(1);
-//
-//        when(statisticsMock.getComments()).thenReturn(commentsList);
-//
+//         Statistics statisticsMock = mock(Forum.class);
+//        Forum forumStats = new Forum(statisticsMock);
 //        //When
-//        int quantityOfComments = comments.calculateComments();
-//
+//        double adverageOfComments = forumStats.calculateAdvStatistics(statistic);
 //        //Then
-//        Assert.assertEquals(5, quantityOfComments);
+//        Assert(0, adverageOfComments);
 //    }
 //}

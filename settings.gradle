@@ -1,1 +1,3 @@
 rootProject.name = 'kodilla-coursee'
+include 'kodilla-streeam'
+

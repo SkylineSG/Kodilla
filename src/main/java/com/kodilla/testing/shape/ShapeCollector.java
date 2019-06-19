@@ -10,6 +10,7 @@ class ShapeCollector {
     public void addFigure(Shape shape) {
         figures.add(shape);
     }
+
     public boolean removeFromList(Shape shape) {
         boolean result = false;
         if (figures.contains(shape)){
