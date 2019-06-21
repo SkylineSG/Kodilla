@@ -34,7 +34,7 @@ public class StreamMain {
 
         Map<Integer,ForumUser> theResultListOfForumUser = forum.getList().stream()
                 .filter(user -> user.getGender() == 'M')
-                .filter(user -> user.getDate().getYear() <= 1999 )
+                .filter(user -> user.getDate().getYear() <= 20 )
                 .filter(user -> user.getPosts() > 1)
                 .collect(Collectors.toMap(ForumUser::getID, user -> user));
 
