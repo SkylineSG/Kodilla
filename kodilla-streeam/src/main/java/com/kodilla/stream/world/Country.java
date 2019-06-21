@@ -8,9 +8,9 @@ import java.util.List;
 public final class Country {
 
     private final String countryName;
-    private final BigDecimal people;
+    private final long people;
 
-    public Country(String countryName, BigDecimal people) {
+    public Country(String countryName, long people) {
         this.countryName = countryName;
         this.people = people;
     }
@@ -18,7 +18,7 @@ public final class Country {
         return countryName;
     }
 
-    public BigDecimal getPeople() {
+    public long getPeople() {
         return people;
     }
 
