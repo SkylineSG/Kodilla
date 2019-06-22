@@ -7,7 +7,7 @@ public interface ArrayOperations {
 
     static void getAverage(int[] numbers){
         IntStream.range(0,numbers.length)
-                .map(System.out::println);
+                .forEach(System.out::println);
         IntStream.range(0,numbers.length)
                 .average();
     }
