@@ -7,14 +7,12 @@ import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 import com.kodilla.stream.iterate.NumbersGenerator;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+
       /*  PoemBeautifier beautifier = new PoemBeautifier();
 
         beautifier.beautify("DEF",c -> "ABC" + c);

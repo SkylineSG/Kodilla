@@ -1,18 +1,10 @@
 package com.kodilla.stream.world;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public final class Continent {
-
-    private final List<Country> countries = new ArrayList<>();
-
-    public void addCountry(Country country) {
-        countries.add(country);
-    }
-
-
-/*
     private final String land;
     private final Country country;
 
@@ -21,7 +13,7 @@ public final class Continent {
         this.country = country;
     }
 
-    public String getLand() {
+    public String getContinentName() {
         return land;
     }
 
@@ -29,11 +21,8 @@ public final class Continent {
         return country;
     }
 
-    public List<Country> getCountries() {
-        return countries;
-    }
-*/
-
+    Continent Europe = new Continent("Europe",country.europe);
+    Continent southAmerica = new Continent("southAmerica",country.southAmerica);
 
 
 }

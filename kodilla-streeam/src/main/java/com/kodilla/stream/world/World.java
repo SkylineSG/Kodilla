@@ -7,6 +7,14 @@ import java.util.List;
 
 public final class World {
 
+    private final Country country;
+    private final Continent continent;
+
+    public World(Country country, Continent continent) {
+        this.country = country;
+        this.continent = continent;
+    }
+
     private final List<Continent> continents = new ArrayList<>();
 
     public void addContinents(Continent continent) {
@@ -14,7 +22,7 @@ public final class World {
     }
 
     public BigInteger getPeopleQuantity(){
-        BigInteger peopleQuantity = new BigInteger("99999999901234567890");
+        BigInteger peopleQuantity = new BigInteger();
         return peopleQuantity;
     }
 }
