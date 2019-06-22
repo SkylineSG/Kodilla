@@ -15,12 +15,10 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity(){
         //Given
-        List<World> world = new ArrayList<>();
-        world.add(new Country("Poland",3700045L,));
-        world.add(new Country("Germany",8456456L,));
-        world.add(new Country("Spain",5609456L,));
-        //When
+        World world = new ArrayList<>();
 
+        //When
+        List<World> = world
         //BigInteger totalPopulation =
     }
 }

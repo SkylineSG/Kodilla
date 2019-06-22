@@ -7,6 +7,7 @@ import java.util.List;
 public final class Continent {
     private final String land;
     private final Country country;
+    private final List<Country> coutyLists = new ArrayList<>();
 
     public Continent(String land, Country country) {
         this.land = land;
