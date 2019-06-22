@@ -7,13 +7,15 @@ import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 import com.kodilla.stream.iterate.NumbersGenerator;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        PoemBeautifier beautifier = new PoemBeautifier();
+      /*  PoemBeautifier beautifier = new PoemBeautifier();
 
         beautifier.beautify("DEF",c -> "ABC" + c);
         beautifier.beautify("To",c -> c +"ruń");
@@ -28,13 +30,12 @@ public class StreamMain {
         System.out.println();
         System.out.println();
         System.out.println();
- // 7.3
-
+ // 7.3*/
         Forum forum = new Forum();
 
         Map<Integer,ForumUser> theResultListOfForumUser = forum.getList().stream()
                 .filter(user -> user.getGender() == 'M')
-                .filter(user -> user.getDate().getYear() <= 20 )
+                .filter(user -> user.getActualYear() <= 20)
                 .filter(user -> user.getPosts() > 1)
                 .collect(Collectors.toMap(ForumUser::getID, user -> user));
 
