@@ -6,23 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class World {
+    private final String name;
+    private final List<Continent> continents;
 
-    private final Country country;
-    private final Continent continent;
 
-    public World(Country country, Continent continent) {
-        this.country = country;
-        this.continent = continent;
+    public World(String name, List<Continent> continents) {
+        this.name = name;
+        this.continents = continents;
     }
 
-    private final List<Continent> continents = new ArrayList<>();
+    public BigDecimal getPeopleQuantity(){
+           return continents.stream()
+           .flatMap(continent -> continent.getCoutyLists().stream())
+                   .map(d -> d.getPeople())
+                   .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
 
-    public void addContinents(Continent continent) {
-        continents.add(continent);
-    }
-
-    public BigInteger getPeopleQuantity(){
-        BigInteger peopleQuantity = new BigInteger();
-        return peopleQuantity;
     }
 }

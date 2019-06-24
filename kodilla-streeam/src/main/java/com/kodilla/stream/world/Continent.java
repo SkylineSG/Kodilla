@@ -6,24 +6,18 @@ import java.util.List;
 
 public final class Continent {
     private final String land;
-    private final Country country;
-    private final List<Country> coutyLists = new ArrayList<>();
+    private final List<Country> coutyLists;
 
-    public Continent(String land, Country country) {
+    public Continent(String land, List<Country> coutyLists) {
         this.land = land;
-        this.country = country;
+        this.coutyLists = coutyLists;
     }
 
-    public String getContinentName() {
+    public String getLand() {
         return land;
     }
 
-    public Country getCountry() {
-        return country;
+    public List<Country> getCoutyLists() {
+        return coutyLists;
     }
-
-    Continent Europe = new Continent("Europe",country.europe);
-    Continent southAmerica = new Continent("southAmerica",country.southAmerica);
-
-
 }

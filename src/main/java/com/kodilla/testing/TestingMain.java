@@ -1,6 +1,7 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.calculator.Calculator;
+import com.kodilla.testing.library.BookLibrary;
 
 public class TestingMain {
     public static void main(){
@@ -21,4 +22,9 @@ public class TestingMain {
             System.out.println("Error!");
         }
     }
+    //Part2
+    BookLibrary bookLibrary = new BookLibrary();
+
+
+
 }

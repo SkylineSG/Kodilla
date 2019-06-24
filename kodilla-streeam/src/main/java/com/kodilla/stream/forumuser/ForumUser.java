@@ -13,7 +13,7 @@ public final class ForumUser {
     private final char gender;
     private final LocalDate birthDate;
     private final int posts;
-    Calendar actual = Calendar.getInstance();
+    LocalDate start = LocalDate.of(birthDate.getYear(),birthDate.getMonth(),birthDate.getDayOfMonth());
 
 
     public ForumUser(int ID, String user, char gender,int yearOfBirth,
@@ -40,8 +40,12 @@ public final class ForumUser {
     public LocalDate getDate() {
         return birthDate;
     }
-    public int getActualYear() {
-        return actual.get(Calendar.YEAR) - getDate().getYear();
+    public LocalDate getActualDate() {
+        return birthDate;
+    }
+
+    public int getYear() {
+        return birthDate.getYear();
    }
 
     public int getPosts() {

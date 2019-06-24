@@ -35,13 +35,10 @@ public class ArrayOperationsTestSuite {
         numbers[19] = 20;
 
         //When
-        List<Integer> number = ArrayOperations.getAverage(numbers[]);
+        double number = ArrayOperations.getAverage(numbers);
 
 
         //Then
-        int numbersAverage = IntStream.range(0,number.size())
-                .average();
-
-        Assert.assertEquals(10, numbersAverage);
+        Assert.assertEquals(10.0, number,0.01);
     }
 }
