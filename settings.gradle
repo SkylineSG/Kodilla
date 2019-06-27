@@ -1,3 +1,4 @@
 rootProject.name = 'kodilla-coursee'
 include 'kodilla-streeam'
+include 'kodilla-exception'
 
