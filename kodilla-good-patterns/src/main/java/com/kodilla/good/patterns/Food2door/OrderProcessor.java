@@ -1,22 +1,26 @@
 package com.kodilla.good.patterns.Food2door;
 
 public class OrderProcessor {
-    private InformationService informationService;
-    private PreparationOrders orderPreparation;
 
-    public OrderProcessor(InformationService informationService, PreparationOrders orderPreparation) {
-        this.informationService = informationService;
-        this.orderPreparation = orderPreparation;
+    public OrderService orderService;
+
+    public OrderProcessor(OrderService orderService) {
+        this.orderService= orderService;
     }
 
-    public OrderDto process(final OrderRequest orderRequest) {
-        boolean isAvailable = orderPreparation.prepareOrder(orderRequest.getCustomer(), orderRequest.getFoodProducer());
-        if (isAvailable) {
-            informationService.info(orderRequest.getCustomer(), orderRequest);
+    public OrderService getOrderService() {
+        return orderService;
+    }
 
-            return new OrderDto(orderRequest.getCustomer(), orderRequest.getOrderedProducts(), true);
-        } else {
-            return new OrderDto(orderRequest.getCustomer(), orderRequest.getOrderedProducts(), false);
+    public OrderDto processing(final OrderRequest orderRequest) {
+        boolean isOrdered = orderService.order(orderRequest.getCustomer(),orderRequest.getProduct(),orderRequest.getSupplier());
+        if (isOrdered) {
+            return new OrderDto(orderRequest.getCustomer(), orderRequest.getProduct(), orderRequest.getSupplier(), true);
         }
+        else {
+            return new OrderDto(orderRequest.getCustomer(),orderRequest.getProduct(),orderRequest.getSupplier(),false);
+        }
+
     }
+
 }

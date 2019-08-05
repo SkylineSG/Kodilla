@@ -4,24 +4,24 @@ import java.util.Map;
 
 public class OrderRequest {
     private Customer customer;
-    private FoodProducer foodProducer;
-    private Map<Product, Integer> orderedProducts;
+    private Product product;
+    private Supplier supplier ;
 
-    public OrderRequest(Customer customer, FoodProducer foodProducer, Map<Product, Integer> orderedProducts) {
+    public OrderRequest(Customer customer, Product product, Supplier supplier) {
         this.customer = customer;
-        this.foodProducer = foodProducer;
-        this.orderedProducts = orderedProducts;
+        this.product = product;
+        this.supplier = supplier;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public FoodProducer getFoodProducer() {
-        return foodProducer;
+    public Product getProduct() {
+        return product;
     }
 
-    public Map<Product, Integer> getOrderedProducts() {
-        return orderedProducts;
+    public Supplier getSupplier() {
+        return supplier;
     }
 }

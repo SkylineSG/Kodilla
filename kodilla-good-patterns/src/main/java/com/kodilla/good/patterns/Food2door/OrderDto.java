@@ -4,12 +4,14 @@ import java.util.Map;
 
 public class OrderDto {
     public Customer customer;
-    public Map<Product, Integer> orderedProducts;
+    public Product product;
+    public Supplier supplier;
     public boolean isOrdered;
 
-    public OrderDto(Customer customer, Map<Product, Integer> orderedProducts, boolean isOrdered) {
+    public OrderDto(Customer customer, Product product, Supplier supplier, boolean isOrdered) {
         this.customer = customer;
-        this.orderedProducts = orderedProducts;
+        this.product = product;
+        this.supplier = supplier;
         this.isOrdered = isOrdered;
     }
 
@@ -17,8 +19,12 @@ public class OrderDto {
         return customer;
     }
 
-    public Map<Product, Integer> getOrderedProducts() {
-        return orderedProducts;
+    public Product getProduct() {
+        return product;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
     }
 
     public boolean isOrdered() {
