@@ -5,14 +5,14 @@ import org.junit.Test;
 
 public class LoggerTestSuite {
 
-Logger logger = new Logger();
+    Logger logger = new Logger();
 
     @Test
     public void getLastLog() {
         //Given
-    logger.log("Paw");
-    logger.log("Wap");
-    logger.log("Apw");
+        logger.log("Paw");
+        logger.log("Wap");
+        logger.log("Apw");
 
         //When
         Logger.getInstance().log("ADS");
