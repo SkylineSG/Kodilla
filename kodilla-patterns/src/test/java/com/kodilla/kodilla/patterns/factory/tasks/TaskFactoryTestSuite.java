@@ -6,7 +6,7 @@ import org.junit.Test;
 public class TaskFactoryTestSuite {
 
     @Test
-    public void ShopingTaskTest() {
+    public void testFactoryShoppingTask() {
         //Given
         TaskFactory factory = new TaskFactory();
 
@@ -21,7 +21,7 @@ public class TaskFactoryTestSuite {
     }
 
     @Test
-    public void PaintingTaskTest(){
+    public void testFactoryPaintingTask(){
         //Given
         TaskFactory factory = new TaskFactory();
 
@@ -37,7 +37,7 @@ public class TaskFactoryTestSuite {
 
     }
     @Test
-    public void DrivingTaskTest(){
+    public void testFactoryDrivingTask(){
         //Given
         TaskFactory factory = new TaskFactory();
 
