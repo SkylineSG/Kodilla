@@ -2,4 +2,8 @@ rootProject.name = 'kodilla-coursee'
 include 'kodilla-streeam'
 include 'kodilla-exception'
 include 'kodilla-patterns'
+include 'kodilla-jdbc'
+include 'kodilla-jdbc'
+include 'kodilla-jdbc'
+include 'kodilla-jdbc'
 
