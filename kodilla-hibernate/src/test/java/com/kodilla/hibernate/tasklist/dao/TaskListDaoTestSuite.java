@@ -1,6 +1,5 @@
 package com.kodilla.hibernate.tasklist.dao;
 
-import com.kodilla.hibernate.task.dao.TaskDao;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,34 +8,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = TaskList.class)
+@SpringBootTest
 public class TaskListDaoTestSuite {
-    private static final String LISTNAME = "The next one list";
     @Autowired
     private TaskListDao taskListDao;
-    @Autowired
-    private TaskDao taskDao;
-
     @Test
-    public void testTaskDaoFindByListName() {
+    public void testFindByListName(){
         //Given
-        TaskList taskList = new TaskList(1, "First List", "This is my first list");
+        TaskList taskList = new TaskList("ToDoList","List of TO DO Items");
         taskListDao.save(taskList);
-        String listName = taskList.getListName();
+        String taskListName = taskList.getListName();
 
         //When
-        List<TaskList> readTaskLists = taskListDao.findByListName(listName);
+        List<TaskList> findByName= taskListDao.findByListName(taskListName);
+        String name = findByName.get(0).getListName();
 
         //Then
-        Assert.assertEquals(1, readTaskLists.size());
+        Assert.assertEquals("ToDoList", name);
 
-        //CleanUp
-        int id = readTaskLists.get(0).getId();
-        taskDao.deleteById(id);
+        //Cleanup
+        int id = findByName.get(0).getId();
+        taskListDao.delete(id);
+
     }
-
 }
