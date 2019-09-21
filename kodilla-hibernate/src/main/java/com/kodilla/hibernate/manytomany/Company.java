@@ -5,18 +5,35 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWithFirstThreeLettersOfNameEqualTo",
+        query = "FROM COMPANIES WHERE LEFT((3,name) = :COMPANY_NAME)) ",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
     private int id;
     private String name;
-    private List<Employee> employees = new ArrayList<>();
+    private List<Employee>  employees = new ArrayList<>();
 
     public Company() {
     }
 
     public Company(String name) {
         this.name = name;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "companies")
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    private void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Id
@@ -39,14 +56,5 @@ public class Company {
 
     private void setName(String name) {
         this.name = name;
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "companies")
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
     }
 }

@@ -7,16 +7,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.repository.query.Param;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
-    public void testSaveManyToMany(){
+    public void testSaveManyToMany() {
         //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
@@ -52,12 +57,145 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        //try {
-        //    companyDao.deleteById(softwareMachineId);
-        //    companyDao.deleteById(dataMaestersId);
-        //    companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+        try {
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMaestersId);
+            companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
+
+    @Test
+    public void testNamedQuery() {
+        //Given
+        Employee employee1 = new Employee("Aleksandra", "Radzikowska");
+        Employee employee2 = new Employee("Julia", "Kowalska");
+        Employee employee3 = new Employee("Mateusz", "Dąbrowski");
+        Employee employee4 = new Employee("Kinga", "Moniuszko");
+        Employee employee5 = new Employee("Artur", "Słowacki");
+        Employee employee6 = new Employee("Maurycy", "Fiołek");
+
+        Company company1 = new Company("LuxProgramming");
+        Company company2 = new Company("CompanyOfFuture");
+        Company company3 = new Company("GreenWorld");
+
+        company1.getEmployees().add(employee1);
+        company1.getEmployees().add(employee2);
+        company2.getEmployees().add(employee3);
+        company2.getEmployees().add(employee4);
+        company3.getEmployees().add(employee5);
+        company3.getEmployees().add(employee6);
+
+        employee1.getCompanies().add(company1);
+        employee2.getCompanies().add(company1);
+        employee3.getCompanies().add(company2);
+        employee4.getCompanies().add(company2);
+        employee5.getCompanies().add(company3);
+        employee6.getCompanies().add(company3);
+
+        //When
+        employeeDao.save(employee1);
+        int employee1_ID = employee1.getId();
+        employeeDao.save(employee2);
+        int employee2_ID = employee2.getId();
+        employeeDao.save(employee3);
+        int employee3_ID = employee3.getId();
+        employeeDao.save(employee4);
+        int employee4_ID = employee4.getId();
+        employeeDao.save(employee5);
+        int employee5_ID = employee5.getId();
+        employeeDao.save(employee6);
+        int employee6_ID = employee6.getId();
+
+
+        //When
+        List<Employee> employeeRadzikowskaLastName = employeeDao.retrieveEmployeesWithLastNameEqualTo("Radzikowska");
+
+
+        //Then
+        Assert.assertEquals(1, employeeRadzikowskaLastName.size());
+
+        //CleanUp
+        try {
+            employeeDao.delete(employee1);
+            employeeDao.delete(employee2);
+            employeeDao.delete(employee3);
+            employeeDao.delete(employee4);
+            employeeDao.delete(employee5);
+            employeeDao.delete(employee6);
+
+            companyDao.delete(company1);
+            companyDao.delete(company2);
+            companyDao.delete(company3);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+
+    @Test
+    public void testNativeNamedQuery() {
+        //Given
+        Employee employee1 = new Employee("Aleksandra", "Radzikowska");
+        Employee employee2 = new Employee("Julia", "Kowalska");
+        Employee employee3 = new Employee("Mateusz", "Dąbrowski");
+        Employee employee4 = new Employee("Kinga", "Moniuszko");
+        Employee employee5 = new Employee("Artur", "Słowacki");
+        Employee employee6 = new Employee("Maurycy", "Fiołek");
+
+        Company company1 = new Company("LuxProgramming");
+        Company company2 = new Company("CompanyOfFuture");
+        Company company3 = new Company("GreenWorld");
+
+        company1.getEmployees().add(employee1);
+        company1.getEmployees().add(employee2);
+        company2.getEmployees().add(employee3);
+        company2.getEmployees().add(employee4);
+        company3.getEmployees().add(employee5);
+        company3.getEmployees().add(employee6);
+
+        employee1.getCompanies().add(company1);
+        employee2.getCompanies().add(company1);
+        employee3.getCompanies().add(company2);
+        employee4.getCompanies().add(company2);
+        employee5.getCompanies().add(company3);
+        employee6.getCompanies().add(company3);
+
+        //When
+        employeeDao.save(employee1);
+        int employee1_ID = employee1.getId();
+        employeeDao.save(employee2);
+        int employee2_ID = employee2.getId();
+        employeeDao.save(employee3);
+        int employee3_ID = employee3.getId();
+        employeeDao.save(employee4);
+        int employee4_ID = employee4.getId();
+        employeeDao.save(employee5);
+        int employee5_ID = employee5.getId();
+        employeeDao.save(employee6);
+        int employee6_ID = employee6.getId();
+
+        //When
+        List<Company> companyGreFirstTreeLetters = companyDao.retrieveCompaniesWithFirstThreeLettersOfNameEqualTo("GRE");
+
+        //Then
+        Assert.assertEquals(1, companyGreFirstTreeLetters.size());
+
+        //CleanUp
+        try {
+            employeeDao.delete(employee1);
+            employeeDao.delete(employee2);
+            employeeDao.delete(employee3);
+            employeeDao.delete(employee4);
+            employeeDao.delete(employee5);
+            employeeDao.delete(employee6);
+            companyDao.delete(company1);
+            companyDao.delete(company2);
+            companyDao.delete(company3);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
 }
