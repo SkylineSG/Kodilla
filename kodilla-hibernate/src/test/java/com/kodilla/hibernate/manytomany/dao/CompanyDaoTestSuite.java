@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.repository.query.Param;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -69,7 +68,7 @@ public class CompanyDaoTestSuite {
     @Test
     public void testNamedQuery() {
         //Given
-        Employee employee1 = new Employee("Aleksandra", "Radzikowska");
+        Employee employee1 = new Employee("John", "Trawolta");
         Employee employee2 = new Employee("Julia", "Kowalska");
         Employee employee3 = new Employee("Mateusz", "Dąbrowski");
         Employee employee4 = new Employee("Kinga", "Moniuszko");
@@ -110,11 +109,11 @@ public class CompanyDaoTestSuite {
 
 
         //When
-        List<Employee> employeeRadzikowskaLastName = employeeDao.retrieveEmployeesWithLastNameEqualTo("Radzikowska");
+        List<Employee> employeeLastName = employeeDao.retrieveEmployeesWithLastNameEqualTo("John");
 
 
         //Then
-        Assert.assertEquals(1, employeeRadzikowskaLastName.size());
+        Assert.assertEquals(1, employeeLastName.size());
 
         //CleanUp
         try {
@@ -137,7 +136,7 @@ public class CompanyDaoTestSuite {
     @Test
     public void testNativeNamedQuery() {
         //Given
-        Employee employee1 = new Employee("Aleksandra", "Radzikowska");
+        Employee employee1 = new Employee("John", "Twaf");
         Employee employee2 = new Employee("Julia", "Kowalska");
         Employee employee3 = new Employee("Mateusz", "Dąbrowski");
         Employee employee4 = new Employee("Kinga", "Moniuszko");
