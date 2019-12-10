@@ -1,14 +1,14 @@
 package com.kodilla.hibernate.manytomany;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @NamedNativeQuery(
-        name = "Company.retrieveCompaniesWithFirstThreeLettersOfNameEqualTo",
-        query = "FROM COMPANIES WHERE LEFT((3,name) = :COMPANY_NAME)) ",
+        name = "Company.getCompanyName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%', :NAME , '%')",
         resultClass = Company.class
 )
 
@@ -17,23 +17,13 @@ import java.util.List;
 public class Company {
     private int id;
     private String name;
-    private List<Employee>  employees = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<>();
 
     public Company() {
     }
 
     public Company(String name) {
         this.name = name;
-    }
-
-
-    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "companies")
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    private void setEmployees(List<Employee> employees) {
-        this.employees = employees;
     }
 
     @Id
@@ -56,5 +46,14 @@ public class Company {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }
