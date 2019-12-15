@@ -5,7 +5,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
+//com.kodilla.patterns2.facade.aop.FacadeAop
 @Aspect
 @Component
 public class FacadeAop {
