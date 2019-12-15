@@ -1,10 +1,14 @@
-package com.kodilla.patterns2.bserver.forum;
+package com.kodilla.patterns2.bserver.forum.homework;
 
+import com.kodilla.patterns2.observer.forum.homework.JavaTask1;
+import com.kodilla.patterns2.observer.forum.homework.JavaTask2;
+import com.kodilla.patterns2.observer.forum.homework.Mentor;
+import com.kodilla.patterns2.observer.forum.homework.Task;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TaskUserTestSuite {
+public class ForumUserTests {
 
     @Test
     public void testUpdateTask() {
