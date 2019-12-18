@@ -34,7 +34,7 @@ public class TaskListDaoTestSuite {
 
         //Cleanup
         int id = findByName.get(0).getId();
-        taskListDao.delete(id);
+        taskListDao.deleteById(id);
     }
     @Test
     public void testTaskListDaoSaveWithTasks() {
@@ -59,6 +59,6 @@ public class TaskListDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        taskListDao.delete(id);
+        taskListDao.deleteById(id);
     }
 }

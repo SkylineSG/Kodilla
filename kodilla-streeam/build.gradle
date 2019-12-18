@@ -2,8 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.kodilla'
-version '0.0.1-SNAPSHOT'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -12,5 +11,6 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //test dependencies
+    testCompile('junit:junit:4.12')
 }
