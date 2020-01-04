@@ -3,8 +3,7 @@ package com.kodilla.stream;
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.forumuser.Forum;
-import com.kodilla.stream.forumuser.ForumUser;
+
 import com.kodilla.stream.iterate.NumbersGenerator;
 
 import java.time.LocalDate;
@@ -31,19 +30,20 @@ public class StreamMain {
         System.out.println();
         System.out.println();
  // 7.3*/
-        Forum forum = new Forum();
-
-        Map<Integer,ForumUser> theResultListOfForumUser = forum.getList().stream()
-                .filter(user -> user.getGender() == 'M')
-                .filter(user -> Period.between(user.getDate(),LocalDate.now()).getYears()  >= 20)
-                .filter(user -> user.getPosts() > 1)
-                .collect(Collectors.toMap(ForumUser::getID, user -> user));
-
-
-
-        theResultListOfForumUser.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())
-                .forEach(System.out::println);
+//        Forum forum = new Forum();
+//
+//        Map<Integer,ForumUser> theResultListOfForumUser = forum.getList().stream()
+//                .filter(user -> user.getGender() == 'M')
+//                .filter(user -> Period.between(user.getDate(),LocalDate.now()).getYears()  >= 20)
+//                .filter(user -> user.getPosts() > 1)
+//                .collect(Collectors.toMap(ForumUser::getID, user -> user));
+//
+//
+//
+//        theResultListOfForumUser.entrySet().stream()
+//                .map(entry -> entry.getKey() + ": " + entry.getValue())
+//                .forEach(System.out::println);
+//    }
     }
-    }
+}
 
