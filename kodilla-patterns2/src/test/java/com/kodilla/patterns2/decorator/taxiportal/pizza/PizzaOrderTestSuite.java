@@ -1,8 +1,11 @@
 package com.kodilla.patterns2.decorator.taxiportal.pizza;
 
+
 import org.junit.Test;
+
 import java.math.BigDecimal;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class PizzaOrderTestSuite {
 

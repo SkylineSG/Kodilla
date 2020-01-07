@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 buildscript {
     ext {
         springBootVersion = '2.0.1.RELEASE'
@@ -13,21 +14,41 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+=======
+plugins {
+    id 'org.springframework.boot' version '2.1.0.RELEASE'
+    id 'java'
+}
+
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
+<<<<<<< HEAD
 sourceCompatibility = 1.8
+=======
+sourceCompatibility = '1.8'
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+<<<<<<< HEAD
     compile('org.springframework.boot:spring-boot-starter')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+=======
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     runtimeOnly 'mysql:mysql-connector-java'
+<<<<<<< HEAD
+=======
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 }

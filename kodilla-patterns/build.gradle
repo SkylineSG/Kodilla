@@ -1,6 +1,10 @@
 buildscript {
     ext {
+<<<<<<< HEAD
         springBootVersion = '2.0.1.RELEASE'
+=======
+        springBootVersion = '2.1.1.RELEASE'
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
     }
     repositories {
         mavenCentral()
@@ -11,19 +15,31 @@ buildscript {
 }
 
 apply plugin: 'java'
+<<<<<<< HEAD
 apply plugin: 'eclipse'
+=======
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
+<<<<<<< HEAD
 sourceCompatibility = 1.8
+=======
+sourceCompatibility = '1.8'
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+<<<<<<< HEAD
     compile('org.springframework.boot:spring-boot-starter')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+=======
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+>>>>>>> f13616074c86469b974426d94f91950aea8d4a06
 }
